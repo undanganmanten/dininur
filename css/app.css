@@ -173,7 +173,7 @@ main {
 }
 
 #home {
-  height: 90vh;
+  height: 100vh;
   background: url("../assets/images/gallery/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -800,6 +800,46 @@ svg.wave {
   /* padding-right: 10px; */
   font-family: "Playfair Display", serif;
   /* border: solid 1px #ad7000; */
+}
+
+/* Modal responsiveness tweaks */
+.modal .modal-content {
+  max-height: 100vh; /* keep modal within viewport */
+  overflow: auto; /* allow internal scrolling on small heights */
+}
+
+.modal .d-flex.align-items-center {
+  /* ensure flex centering applies to modal dialog */
+  align-items: center;
+}
+
+.modal .text-center {
+  padding: 1.25rem; /* give breathing room and prevent content touching edges */
+}
+
+/* Small viewport heights: reduce spacing and scale down large headings */
+@media (max-height: 640px) {
+  #home > .text-center,
+  .modal .text-center {
+    padding: 0.75rem;
+  }
+
+  .modal .font-estetik {
+    font-size: 2.2rem !important;
+  }
+
+  .modal h6,
+  .modal p,
+  .modal .btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tall screens: nudge content slightly upward for a more balanced look */
+@media (min-height: 900px) {
+  .modal .text-center {
+    transform: translateY(-5%);
+  }
 }
 
 .container2 {

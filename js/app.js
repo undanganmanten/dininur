@@ -101,7 +101,17 @@ const buka = () => {
   document.getElementById("tombol-musik").style.display = "block";
   AOS.init();
   // login();
-  audio.play();
+  // play audio and ignore blocked autoplay (log error)
+  try {
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((err) => {
+        console.warn("Audio play prevented:", err);
+      });
+    }
+  } catch (e) {
+    console.warn("Audio play error:", e);
+  }
   create_unfinished_task();
 };
 
