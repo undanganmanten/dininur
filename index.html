@@ -875,7 +875,7 @@
                 </div>
 
                 <div class="footer-content">
-                  <form id="newcomment">
+                  <form id="newcomment" onsubmit="add_task(event)">
                     <div class="form-elements">
                       <input
                         id="name"
@@ -897,9 +897,7 @@
                         <option value="Tidak Hadir">Tidak Hadir</option>
                         <option value="Masih Ragu">Masih Ragu</option>
                       </select>
-                      <button id="input_button" onclick="add_task()">
-                        Send
-                      </button>
+                      <button id="input_button" type="submit">Send</button>
                     </div>
                   </form>
                 </div>

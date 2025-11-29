@@ -339,10 +339,11 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-function add_task() {
-  input_box = document.getElementById("message");
-  input_date = document.getElementById("name");
-  input_hadir = document.getElementById("presention");
+function add_task(event) {
+  if (event) event.preventDefault();
+  const input_box = document.getElementById("message");
+  const input_date = document.getElementById("name");
+  const input_hadir = document.getElementById("presention");
 
   if (
     input_box.value.length != 0 &&
@@ -377,6 +378,10 @@ let presentHadir = 0;
 let presentTidakHadir = 0;
 let presentRagu = 0;
 function create_unfinished_task() {
+  // Reset counters every time so they don't accumulate
+  presentHadir = 0;
+  presentTidakHadir = 0;
+  presentRagu = 0;
   unfinished_task_container = document.getElementsByClassName("container1")[0];
   unfinished_task_container.innerHTML = "";
 
